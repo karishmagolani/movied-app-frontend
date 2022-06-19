@@ -5,6 +5,7 @@ const Home = ({ isLoggedIn }) => {
   return (
     <div>
       <Header isLoggedIn={isLoggedIn} />
+      <div className="title">Upcoming Movies</div>
     </div>
   );
 };

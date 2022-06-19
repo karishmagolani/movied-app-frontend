@@ -1,4 +1,6 @@
 @import "./common/header/header.css";
+@import "./screens/home/Home.css";
+
 body {
   margin: 0;
   padding: 0;
