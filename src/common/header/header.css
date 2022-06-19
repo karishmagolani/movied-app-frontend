@@ -1,0 +1,21 @@
+.header {
+  background-color: #222;
+  height: 36px;
+  padding: 8px 32px 8px 16px;
+  display: flex;
+}
+.logo img {
+  background: #ff7f7f;
+  animation: rotation 8s infinite linear;
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+.login-btn {
+  margin-left: auto;
+}
