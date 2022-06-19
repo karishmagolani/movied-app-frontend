@@ -10,3 +10,11 @@
 .released-list {
   display: flex;
 }
+.left-section {
+  width: 76%;
+  margin: 16px;
+}
+.right-section {
+  width: 24%;
+  margin: 16px;
+}
