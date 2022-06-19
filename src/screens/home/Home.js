@@ -129,7 +129,7 @@ const Home = ({ isLoggedIn, classes }) => {
     fetchGenres();
     fetchArtists();
   }, []);
-  console.log("Genre LIST", genresList);
+
   return (
     <div>
       <Header isLoggedIn={isLoggedIn} />

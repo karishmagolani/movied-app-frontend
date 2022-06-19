@@ -1,0 +1,27 @@
+.back-btn {
+  margin-left: 24px;
+  margin-top: 8px;
+  height: 24px;
+  cursor: pointer;
+}
+.main-flex {
+  display: flex;
+}
+.left-section {
+  width: 20%;
+}
+.middle-section {
+  width: 60%;
+}
+.right-section {
+  width: 20%;
+}
+.yellow {
+  color: yellow;
+  cursor: pointer;
+}
+
+.black {
+  color: none;
+  cursor: pointer;
+}

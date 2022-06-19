@@ -4,7 +4,7 @@ import Logo from "../../assets/logo.svg";
 import LoginModal from "../Authentication/LoginModal";
 import { API_URL } from "../../constants";
 
-const Header = ({ showBookShowButton = false, isLoggedIn }) => {
+const Header = ({ showBookShowButton = false, isLoggedIn, id }) => {
   //states
   const [isModalOpen, setIsModalOpen] = useState(false); //to handle login modal
 
@@ -29,18 +29,31 @@ const Header = ({ showBookShowButton = false, isLoggedIn }) => {
       })
       .catch((err) => console.log(err));
   };
+  const handleOnBookShowClick = () => {
+    if (isLoggedIn) {
+      window.location.href = `/bookshow/${id}`;
+    } else {
+      openModal();
+    }
+  };
 
   return (
     <div className="header">
       <div className="logo">
         <img src={Logo} alt={"logo"} height="35px" />
       </div>
-      {showBookShowButton && (
-        <div>
-          <Button variant="contained">Book Show</Button>
-        </div>
-      )}
-      <div className="login-btn">
+
+      <div className="header-button-group">
+        {showBookShowButton && (
+          <Button
+            style={{ marginRight: "5px" }}
+            variant="contained"
+            color="primary"
+            onClick={handleOnBookShowClick}
+          >
+            Book Show
+          </Button>
+        )}
         {isLoggedIn ? (
           <Button variant="contained" onClick={handleLogoutClick}>
             Logout

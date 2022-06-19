@@ -1,5 +1,6 @@
 @import "./common/header/header.css";
 @import "./screens/home/Home.css";
+@import "./screens/details/Details.css";
 
 body {
   margin: 0;

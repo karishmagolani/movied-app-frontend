@@ -16,6 +16,7 @@
     transform: rotate(359deg);
   }
 }
-.login-btn {
+.header-button-group {
   margin-left: auto;
+  display: flex;
 }
