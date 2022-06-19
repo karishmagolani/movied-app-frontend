@@ -2,6 +2,7 @@ import { Button } from "@material-ui/core";
 import React, { useState } from "react";
 import Logo from "../../assets/logo.svg";
 import LoginModal from "../Authentication/LoginModal";
+import { API_URL } from "../../constants";
 
 const Header = ({ showBookShowButton = false, isLoggedIn }) => {
   //states
@@ -10,8 +11,24 @@ const Header = ({ showBookShowButton = false, isLoggedIn }) => {
   //handlers
   const handleOnCloseModal = () => setIsModalOpen(false);
   const openModal = () => setIsModalOpen(true);
-
-  console.log("---------->", isLoggedIn);
+  const handleLogoutClick = () => {
+    const token = window.localStorage["access-token"];
+    fetch(`${API_URL}/auth/logout`, {
+      method: "POST",
+      headers: {
+        authorization: `Bearer ${token}`,
+        Accept: "application/json;charset=UTF-8",
+      },
+    })
+      .then((res) => {
+        console.log(res);
+        if (res.status === 200) {
+          window.localStorage.removeItem("access-token");
+          window.location.reload();
+        }
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div className="header">
@@ -25,7 +42,9 @@ const Header = ({ showBookShowButton = false, isLoggedIn }) => {
       )}
       <div className="login-btn">
         {isLoggedIn ? (
-          <Button variant="contained">Logout</Button>
+          <Button variant="contained" onClick={handleLogoutClick}>
+            Logout
+          </Button>
         ) : (
           <Button variant="contained" onClick={openModal}>
             Login

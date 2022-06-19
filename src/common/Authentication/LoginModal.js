@@ -75,6 +75,7 @@ const LoginModal = ({ open, handleClose }) => {
           );
           setApiFail(false);
           handleClose();
+          window.location.reload();
         }
       })
       .catch((err) => err);
